@@ -1,6 +1,7 @@
 package array;
 
 public class Maxsubarraysum {
+    // brute force method (Time complexity - O(n^3) & Space complexity- O(1))
     public static void MaxSubArraySum_BruteForcemethod(int arr[]){
         int maxsum=Integer.MIN_VALUE;
         int startindex=0;
@@ -30,7 +31,7 @@ public class Maxsubarraysum {
         
        
     }
-    // using Prefix sum
+    // using Prefix sum (Time complexity - O(n^2) & Space complexity- O(n))
     public static void MaxSubArraySum_PrefixSum(int arr[]){
         int maxsum=Integer.MIN_VALUE;
         int sum=0;
@@ -61,6 +62,7 @@ public class Maxsubarraysum {
         
        
     }
+    
     public static void main(String[] args) {
         int arr[]={2,3,-1,5,4,-2};
         MaxSubArraySum_PrefixSum(arr);
