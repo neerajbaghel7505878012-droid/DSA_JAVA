@@ -1,7 +1,5 @@
-package array;
-
-public class Maxsubarraysum {
-    // brute force method (Time complexity - O(n^3) & Space complexity- O(1))
+public class PascleCase {
+    // Brute force method (Time complexity - O(n^3) & Space complexity- O(1))
     public static void MaxSubArraySum_BruteForcemethod(int arr[]){
         int maxsum=Integer.MIN_VALUE;
         int startindex=0;
@@ -35,6 +33,8 @@ public class Maxsubarraysum {
     public static void MaxSubArraySum_PrefixSum(int arr[]){
         int maxsum=Integer.MIN_VALUE;
         int sum=0;
+         int startindex=0;
+        int endindex=0;
         int Prefix[]= new int[arr.length];
         Prefix[0]=arr[0];
         //calculate prefix array
@@ -49,9 +49,9 @@ public class Maxsubarraysum {
              sum= Prefix[j]-Prefix[i-1];
                }
                  if(maxsum<sum){
-                   
                     maxsum=sum;
-                 
+                 startindex=i;
+         endindex=j;
                     
                  }
             }
@@ -59,12 +59,34 @@ public class Maxsubarraysum {
         }
         
          System.out.println("Max Sub array sum = "+maxsum);
-        
+        for(int i=startindex;i<=endindex;i++){
+            System.out.print(arr[i]+" ");
+        }
        
     }
+    // kadane Algorithm (Time complexity - O(n) & Space complexity- O(1))
+
+     public static void MaxSubArraySum_KadaneAlgorithm(int arr[]){
+        int maxsum=arr[0];
+        int currsum=0;
+        
+      
+        for(int i=0;i<arr.length;i++){
+          currsum=currsum+arr[i];
+        
+    maxsum=Math.max(maxsum, currsum);
+      if(currsum<0){
+            currsum=0;
+    }
+               }
+                System.out.println("Max Sub array sum = "+maxsum);
+               
+        }
+       
+    
     
     public static void main(String[] args) {
-        int arr[]={2,3,-1,5,4,-2};
-        MaxSubArraySum_PrefixSum(arr);
+        int arr[]={-2,-3,-4,-1,-2,-1,-5,-3};
+       
     }
 }
