@@ -1,7 +1,8 @@
 package array;
 
 public class TrappingRainwater {
-    public static void TrappingRainWater(int height[]){
+    // calculate TrappingRainwater using Prefix array (Time complexity - O(n) & Space complexity- O(n))
+    public static void TrappingRainWaterPrefix(int height[]){
         int n=height.length;
         // Calculate Left maximum boundary
         int LeftMax[]= new int [n];
@@ -24,8 +25,46 @@ public class TrappingRainwater {
         }
         System.out.println("Total TrappedWater : "+trappedwater);
     }
+     // calculate TrappingRainwater By Two pointers approach (Time complexity - O(n) & Space complexity- O(1))
+    public static void TrappingRainWaterTwopointers(int height[]) {
+
+    int left = 0;
+    int right = height.length - 1;
+
+    int leftMax = 0;
+    int rightMax = 0;
+
+    int trappedWater = 0;
+
+    while(left < right) {
+
+        if(height[left] < height[right]) {
+
+            if(height[left] >= leftMax) {
+                leftMax = height[left];
+            } else {
+                trappedWater += leftMax - height[left];
+            }
+
+            left++;
+
+        } else {
+
+            if(height[right] >= rightMax) {
+                rightMax = height[right];
+            } else {
+                trappedWater += rightMax - height[right];
+            }
+
+            right--;
+        }
+    }
+
+    System.out.println("Total Trapped Water : " + trappedWater);
+}
     public static void main(String[] args) {
         int height[]={4,2,0,6,3,2,5};
-        TrappingRainWater(height);
+        TrappingRainWaterPrefix(height);
+        TrappingRainWaterTwopointers(height);
     }
 }
