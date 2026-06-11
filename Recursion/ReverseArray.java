@@ -1,4 +1,5 @@
 public class ReverseArray {
+    // using two pointers
     public static void reverse(int arr[],int left,int right){
        if(left>=right) return ;
 
@@ -7,6 +8,7 @@ public class ReverseArray {
             arr[right]=temp;
             reverse(arr, left+1, right-1);
         }
+    // using only index i
         public static void forfun(int i,int arr[],int n){
             if(i>=n/2) return;
           int temp=arr[i];
