@@ -1,5 +1,7 @@
-public class RecursiveBubbleSort{
-public static void recusiveBubbleSort(int arr[],int n){
+package Sortings;
+
+public class RecursiveBubbleSort {
+     public static void recursiveBubbleSort(int arr[],int n){
         if(n<=1) return;
         boolean swap=false;
         for(int i=0;i<n-1;i++){
@@ -11,15 +13,14 @@ public static void recusiveBubbleSort(int arr[],int n){
             }
         }
         if(!swap) return;
-recusiveBubbleSort(arr, n-1);
-   }
-public static void main(String[] args) {
-    int arr[] = {5,1,2,3,4};
-    
-   recusiveBubbleSort(arr, arr.length);
-  
-    for(int i=0;i<arr.length;i++){
+recursiveBubbleSort(arr, n-1);
+    }
+    public static void main(String[] args) {
+         int arr[] = {5,1,2,3,4};
+     recursiveBubbleSort(arr, arr.length);
+  for(int i=0;i<arr.length;i++){
         System.out.print(arr[i]+" ");
     }
-}
+        
+    }
 }
