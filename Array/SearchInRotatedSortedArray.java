@@ -1,4 +1,4 @@
-package array;
+
 
 public class SearchInRotatedSortedArray {
 public static int search(int arr[] , int target){
