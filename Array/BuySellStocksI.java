@@ -1,16 +1,13 @@
-package array;
 
-public class BuySellStocks {
+public class BuySellStocksI {
     public static int BuyandSellStocks(int prices[]){
-       int profit=0;
+      
         int maxprofit=0;
         int buy=prices[0];
         for(int i=1;i<prices.length;i++){
-            buy=Math.min(prices[i], buy);
-           profit=prices[i]-buy;
-            if(maxprofit<profit){
-                maxprofit=profit;
-            }
+          int profit=prices[i]-buy;
+        maxprofit=Math.max(maxprofit, profit);
+         buy=Math.min(prices[i], buy);
         }
         return maxprofit;
         }
